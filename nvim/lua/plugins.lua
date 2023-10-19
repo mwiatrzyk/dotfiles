@@ -52,4 +52,31 @@ require("lazy").setup({
   -- LSP
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim'},
+
+  -- Signature help during typing
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    config = function()
+      require('lsp_signature').setup({})
+    end
+  },
+
+  -- Treesitter (for better code highlighting)
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function ()
+      local configs = require("nvim-treesitter.configs")
+      configs.setup({
+          ensure_installed = {
+            "c", "cpp", "lua", "vim", "vimdoc", "javascript", "html", "css",
+            "python",
+          },
+          sync_install = false,
+          highlight = { enable = true },
+          indent = { enable = true },
+        })
+    end
+  }
 })
