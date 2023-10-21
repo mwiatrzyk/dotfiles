@@ -1,5 +1,17 @@
 -- Buffer line (i.e. tabs)
-local config = {}
+local config = {
+  options = {
+    offsets = {
+      {
+        filetype = "NvimTree",
+        text = "File Explorer",
+        highlight = "Directory",
+        separator = true -- use a "true" to enable the default, or set your own character
+      }
+    },
+  }
+}
+
 return {
   'akinsho/bufferline.nvim',
   version = "*",
