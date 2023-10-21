@@ -1,4 +1,6 @@
-require('lualine').setup {
+-- Status bar
+
+local config = {
   options = {
     icons_enabled = true,
     theme = 'auto',
@@ -37,4 +39,12 @@ require('lualine').setup {
   winbar = {},
   inactive_winbar = {},
   extensions = {}
+}
+
+return {
+  'nvim-lualine/lualine.nvim',
+  dependencies = {
+    'nvim-tree/nvim-web-devicons'
+  },
+  config = config
 }

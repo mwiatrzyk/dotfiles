@@ -1,7 +1,3 @@
--- Set <leader> key
--- I personally was always using backslash for that purpose
-vim.g.mapleader = "\\"
-
 -- Hint: use `:h <option>` to figure out the meaning if needed
 vim.opt.clipboard = 'unnamedplus'   -- use system clipboard
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
