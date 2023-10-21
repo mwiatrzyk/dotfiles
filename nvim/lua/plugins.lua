@@ -78,5 +78,22 @@ require("lazy").setup({
           indent = { enable = true },
         })
     end
-  }
+  },
+
+  -- Remove trailing whitespace
+  {
+    "mcauley-penney/tidy.nvim",
+    config = {
+      filetype_exclude = {
+        "markdown",
+        "diff"
+      }
+    },
+  },
+
+  -- Status bar
+  { 'nvim-lualine/lualine.nvim', dependencies = {'nvim-tree/nvim-web-devicons'}},
+
+  -- Buffer line (i.e. tabs)
+  { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
 })
