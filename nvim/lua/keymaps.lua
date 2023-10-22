@@ -1,3 +1,5 @@
+local bc = require("blockcomment")
+
 -- define common options
 local opts = {
   noremap = true,      -- non-recursive
@@ -33,3 +35,6 @@ vim.keymap.set('n', '<F3>', ':NvimTreeToggle<CR>', opts)
 vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
 
+-- Comment block
+vim.keymap.set('v', '<leader>c', bc.comment_block, opts)
+vim.keymap.set('v', '<leader>u', bc.uncomment_block, opts)
