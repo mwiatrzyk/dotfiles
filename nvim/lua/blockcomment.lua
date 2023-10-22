@@ -53,6 +53,7 @@ local comment_block = function ()
     rows[i] = comment_string .. rows[i]
   end
   vim.api.nvim_buf_set_lines(0, start_row-1, end_row, true, rows)
+  vim.api.nvim_input("<esc>")
 end
 
 local uncomment_block = function ()
@@ -70,6 +71,7 @@ local uncomment_block = function ()
     end
   end
   vim.api.nvim_buf_set_lines(0, start_row-1, end_row, true, rows)
+  vim.api.nvim_input("<esc>")
 end
 
 return {
