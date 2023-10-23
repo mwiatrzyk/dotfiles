@@ -48,6 +48,20 @@ local configure = function()
       on_attach = on_attach
     })
   end
+
+  -- Enable (broadcasting) snippet capability for completion
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+  -- HTML config
+  lspconfig.html.setup({
+    capabilities = capabilities,
+  })
+
+  -- CSS config
+  lspconfig.cssls.setup({
+    capabilities = capabilities,
+  })
 end
 
 return {

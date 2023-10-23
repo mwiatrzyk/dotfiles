@@ -6,6 +6,8 @@
 local lsp_servers = {
   'lua_ls',
   'pyright',
+  'html',
+  'cssls',
 }
 
 return {
