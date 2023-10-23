@@ -8,6 +8,7 @@ local lsp_servers = {
   'pyright',
   'html',
   'cssls',
+  'biome',
 }
 
 return {
