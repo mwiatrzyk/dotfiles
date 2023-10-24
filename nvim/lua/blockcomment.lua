@@ -5,6 +5,9 @@ local config = {
   filetypes = {
     py = '# ',
     lua = '-- ',
+    js = '// ',
+    c = '// ',
+    cpp = '// ',
   }
 }
 
@@ -36,7 +39,7 @@ local get_comment_string = function ()
   end
   local comment_string = config.filetypes[ft]
   if comment_string == nil then
-    vim.print("Block commenting not configured for: " .. ft)
+    vim.print("Block comment not configured for: " .. ft)
     return nil
   end
   return comment_string
