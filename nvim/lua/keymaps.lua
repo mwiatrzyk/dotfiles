@@ -29,8 +29,8 @@ vim.keymap.set('n', '<F3>', ':NvimTreeToggle<CR>', opts)
 
 -- Telescope key bindings
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, opts)
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, opts)
+vim.keymap.set('n', '<C-p>', builtin.find_files, opts)
+vim.keymap.set('n', '<C-f>', builtin.live_grep, opts)
 vim.keymap.set('n', '<leader>fb', builtin.buffers, opts)
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, opts)
 
