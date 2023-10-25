@@ -1,5 +1,22 @@
 -- Status bar
 
+local active_python_venv = function ()
+  local vs = require("venv-selector")
+  local ft = vim.bo.filetype
+  if ft ~= "python" then
+    return ""  -- don't ask for active venv if this is not Python
+  end
+  local venv = vs.get_active_venv()
+  if venv == nil then
+    return "venv: nil"
+  end
+  return "venv: " .. vim.fs.basename(venv)
+end
+
+local change_python_venv = function ()
+  vim.cmd("VenvSelect")
+end
+
 local config = {
   options = {
     icons_enabled = true,
@@ -23,7 +40,7 @@ local config = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_x = {'encoding', 'fileformat', 'filetype', {active_python_venv, on_click=change_python_venv}},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
