@@ -34,6 +34,17 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, opts)
 vim.keymap.set('n', '<leader>fb', builtin.buffers, opts)
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, opts)
 
+-- Switching between bufferline tabs
+local make_alt_num_handler = function (num)
+  return function ()
+    vim.cmd('BufferLineGoToBuffer '..num)
+  end
+end
+
+for i=1,9 do
+  vim.keymap.set('n', '<A-'..i..'>', make_alt_num_handler(i), opts)
+end
+
 -----------------
 -- Visual mode --
 -----------------
