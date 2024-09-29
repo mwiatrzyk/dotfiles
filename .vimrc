@@ -141,7 +141,11 @@ map         <Leader>e           <Esc>:%s/\s\s*$//c<CR>
 " Plugin configuration
 " --------------------
 
-so ~/.vim/plugins.vim
+" so ~/.vim/plugins.vim
+
+call plug#begin()
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+call plug#end()
 
 " lightline
 set laststatus=2
