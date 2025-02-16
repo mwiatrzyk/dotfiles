@@ -3,7 +3,7 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "clangd",
     "lua_ls",
-    "pyright"
+    "pyright",
   }
 })
 
@@ -17,7 +17,7 @@ lspconfig.clangd.setup({
 })
 
 -- Lua
-lspconfig.lua_ls.setup({ capabilities = capabilities }) -- Lua
+lspconfig.lua_ls.setup({ capabilities = capabilities })
 
 -- Python
 lspconfig.pyright.setup({ capabilities = capabilities })
@@ -33,6 +33,7 @@ vim.diagnostic.config({
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show docs" })
+vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, { desc = "Rename" })
 
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show issues" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous issue" })
