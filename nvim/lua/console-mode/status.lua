@@ -1,11 +1,11 @@
--- Status bar
+-- CONFIGURATION
 
 local active_python_venv = function ()
-  local vs = require("venv-selector")
   local ft = vim.bo.filetype
   if ft ~= "python" then
     return ""  -- don't ask for active venv if this is not Python
   end
+  local vs = require("venv-selector")
   local venv = vs.get_active_venv()
   if venv == nil then
     return "venv: nil"
@@ -31,9 +31,9 @@ local config = {
     always_divide_middle = true,
     globalstatus = false,
     refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
+      statusline = 250,
+      tabline = 250,
+      winbar = 250,
     },
   },
   sections = {
@@ -58,10 +58,7 @@ local config = {
   extensions = {}
 }
 
-return {
-  'nvim-lualine/lualine.nvim',
-  dependencies = {
-    'nvim-tree/nvim-web-devicons'
-  },
-  config = config
-}
+require("lualine").setup(config)
+
+-- Global status line
+vim.opt.laststatus = 3

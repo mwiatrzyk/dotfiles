@@ -1,6 +1,5 @@
--- Color scheme plugin
-
-local config = {
+local catppuccin = require("catppuccin")
+catppuccin.setup({
   flavour = "mocha", -- latte, frappe, macchiato, mocha
   background = { -- :h background
     light = "latte",
@@ -45,14 +44,7 @@ local config = {
     },
     -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
   },
-}
+})
 
-return {
-  "catppuccin/nvim",
-  name = "catppuccin",
-  priority = 1000,
-  config = function()
-    require("catppuccin").setup(config)
-    vim.cmd.colorscheme("catppuccin")
-  end
-}
+-- Set colorscheme
+vim.cmd.colorscheme("catppuccin")

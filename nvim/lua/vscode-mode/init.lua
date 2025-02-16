@@ -1,0 +1,3 @@
+-- VSCode-specific settings
+-- This file will only be executed by neovim if used from VSCode. Add some
+-- VSCode specific stuff here if needed.

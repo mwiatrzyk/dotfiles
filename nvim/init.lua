@@ -1,23 +1,30 @@
--- Set <leader> key
+-- COMMON SETTINGS
+
+-- The <leader> key
 vim.g.mapleader = "\\"
 
--- Install lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+-- COMMON KEYMAPS
+
+local opts = {
+  noremap = true,
+  silent = true,
+}
+
+-- Visual mode
+
+-- Indent/dedent selected code block
+vim.keymap.set('v', '<', '<gv', opts)
+vim.keymap.set('v', '>', '>gv', opts)
+
+-- Comment selected code block
+local bc = require("blockcomment")
+vim.keymap.set('v', '<leader>c', bc.comment_block, opts)
+vim.keymap.set('v', '<leader>u', bc.uncomment_block, opts)
+
+-- MODE-SPECIFIC CONFIGURATION
+
+if vim.g.vscode then
+  require("vscode-mode")
+else
+  require("console-mode")
 end
-vim.opt.rtp:prepend(lazypath)
-
--- Load and configure plugins
-require("lazy").setup("plugins")
-
--- Import settings & other configs
-require("options")
-require("keymaps")
