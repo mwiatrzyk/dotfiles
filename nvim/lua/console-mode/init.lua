@@ -131,6 +131,12 @@ require("lazy").setup({
       require('lsp_signature').setup(config)
     end
   },
+  -- Plugin for generating docs for code
+  {
+    "danymat/neogen",
+    config = true,
+    version = "*"
+  }
 })
 
 require("console-mode.colorscheme")

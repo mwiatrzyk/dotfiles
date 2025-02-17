@@ -7,7 +7,9 @@ local config = {
     lua = '-- ',
     js = '// ',
     c = '// ',
+    h = '// ',
     cpp = '// ',
+    hpp = '// ',
   }
 }
 

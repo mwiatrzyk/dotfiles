@@ -38,3 +38,5 @@ vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, { desc = "Rename" })
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show issues" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous issue" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next issue" })
+
+vim.keymap.set("n", "<leader>ad", ":lua require('neogen').generate()<CR>", {noremap=true, silent=true})
