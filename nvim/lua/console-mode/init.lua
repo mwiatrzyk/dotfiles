@@ -146,7 +146,4 @@ require("console-mode.status")
 require("console-mode.searching")
 require("console-mode.lsp")
 require("console-mode.cmp")
-
--- -- Import settings & other configs
--- require("options")
--- require("keymaps")
+require("console-mode.ui")
