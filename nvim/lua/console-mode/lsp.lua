@@ -7,20 +7,16 @@ require("mason-lspconfig").setup({
   }
 })
 
-local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- C++
-lspconfig.clangd.setup({
+vim.lsp.config("clangd", {
   cmd = { "clangd", "--compile-commands-dir=build" },
   capabilities = capabilities
 })
 
--- Lua
-lspconfig.lua_ls.setup({ capabilities = capabilities })
-
--- Python
-lspconfig.pyright.setup({ capabilities = capabilities })
+vim.lsp.config("*", {
+  capabilities = capabilities
+})
 
 vim.diagnostic.config({
   virtual_text = false,
