@@ -16,7 +16,7 @@ vim.opt.expandtab = true            -- use spaces for tabs
 
 -- UI config
 vim.opt.number = true               -- show absolute number
-vim.opt.relativenumber = true       -- add numbers to each line on the left side
+vim.opt.relativenumber = false       -- add numbers to each line on the left side
 vim.opt.cursorline = true           -- highlight cursor line underneath the cursor horizontally
 vim.opt.splitbelow = true           -- open new vertical split bottom
 vim.opt.splitright = true           -- open new horizontal splits right
@@ -25,6 +25,22 @@ vim.opt.showmode = false            -- we are experienced, wo don't need the "--
 -- Searching
 vim.opt.incsearch = true            -- search as characters are entered
 vim.opt.hlsearch = true             -- highlight matches
+
+-- Spellcheck
+
+-- Commands
+-- `]s` - next error
+-- `[s` - prev error
+-- `z=` - suggestion list
+-- `zg` - add word
+-- `zw` - mark as error
+
+vim.opt.spell = true
+vim.opt.spelllang = {"en"}
+
+vim.keymap.set("n", "<leader>s", function()
+  vim.opt.spell = not vim.opt.spell:get()
+end)
 
 -- MAPPINGS
 
@@ -153,7 +169,28 @@ require("lazy").setup({
       -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
       "<leader>vc", "<cmd>:VenvSelectCached<cr>"
     }}
-  }
+  },
+  -- Plugin for auto closing brackets, quotes etc.
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup({
+        disable_in_comment=true,  -- don't use in comments
+      })
+    end,
+  },
+  -- Plugin for spell checking in comments, strings etc.
+--   {
+--   "lewis6991/spellsitter.nvim",
+--   event = "BufRead",
+--   config = function()
+--     require("spellsitter").setup {
+--       hl = "SpellBad", -- error color
+--       captures = { "comment", "string" }, -- only comments and strings
+--     }
+--   end,
+-- }
 })
 
 require("console-mode.colorscheme")
